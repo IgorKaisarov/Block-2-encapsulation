@@ -4,6 +4,17 @@ public class ProductBasket {
     private Product[] products = new Product[5];
     private int count = 0;
 
+    int specialCount = 0;
+for (Product product : products) {
+        if (product != null) {
+            System.out.println(product.toString());
+            if (product.isSpecial()) {
+                specialCount++;
+            }
+        }
+    }
+System.out.println("Специальных товаров: " + specialCount);
+
     public void addProduct(Product product) {
         if (count < products.length) {
             products[count] = product;
@@ -15,35 +26,42 @@ public class ProductBasket {
 
 
     public void printBasketContents() {
-        boolean isEmpty = true;
+//        boolean isEmpty = true;
+//        for (Product product : products) {
+//            if (product != null) {
+//                System.out.println(product.getName() + ": " + product.getPrice());
+//                isEmpty = false;
+//            }
+//        }
+//        if (isEmpty) {
+//            System.out.println("в корзине пусто");
+//        }
+//        System.out.println("Итого: " + getTotalCost()); // Выводим общую стоимость
+//    }
+
+
         for (Product product : products) {
-            if (product != null) {
-                System.out.println(product.getName() + ": " + product.getCost());
-                isEmpty = false;
-            }
+            System.out.println(product.toString());
         }
-        if (isEmpty) {
-            System.out.println("в корзине пусто");
-        }
-        System.out.println("Итого: " + getTotalCost()); // Выводим общую стоимость
-    }
+
+
     public int getTotalCost() {
         int totalCost = 0;
         for (Product product : products) {
             if (product != null) {
-                totalCost += product.getCost();
+                totalCost += product.getPrice();
             }
         }
         return totalCost;
     }
-    public boolean isProductInBasket(String productName) {
-        for (Product product : products) {
-            if (product != null && product.getName().equals(productName)) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public boolean isProductInBasket(String productName) {
+//        for (Product product : products) {
+//            if (product != null && product.getName().equals(productName)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
     public void clearBasket() {
         for (int i = 0; i < products.length; i++) {
             products[i] = null;
