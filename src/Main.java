@@ -1,15 +1,16 @@
 import org.skypro.skyshop.basket.ProductBasket;
 import org.skypro.skyshop.product.Product;
+import org.skypro.skyshop.product.SimpleProduct;
 
 public class Main {
     public static void main(String[] args) {
 
         // Создание экземпляров продуктов
-        Product product1 = new Product("Помидоры", 90);
-        Product product2 = new Product("Яблоки", 110);
-        Product product3 = new Product("Ананас", 200);
-        Product product4 = new Product("Грейпфрут", 115);
-        Product product5 = new Product("Мандарины", 99);
+        Product product1 = new SimpleProduct("Помидоры", 90);
+        Product product2 = new SimpleProduct("Яблоки", 110);
+        Product product3 = new SimpleProduct("Ананас", 200);
+        Product product4 = new SimpleProduct("Грейпфрут", 115);
+        Product product5 = new SimpleProduct("Мандарины", 99);
 
         // Создание экземпляра корзины
         ProductBasket basket = new ProductBasket();

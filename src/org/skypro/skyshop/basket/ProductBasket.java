@@ -4,16 +4,23 @@ public class ProductBasket {
     private Product[] products = new Product[5];
     private int count = 0;
 
-    int specialCount = 0;
-for (Product product : products) {
-        if (product != null) {
-            System.out.println(product.toString());
-            if (product.isSpecial()) {
-                specialCount++;
+
+    public int specialCount(){
+        int specialCount = 0;
+
+        for (Product product : products) {
+            if (product != null) {
+                System.out.println(product.toString());
+                if (product.isSpecial()) {
+                    specialCount++;
+                }
             }
         }
+        System.out.println("Специальных товаров: " + specialCount);
+
+        return specialCount;
     }
-System.out.println("Специальных товаров: " + specialCount);
+
 
     public void addProduct(Product product) {
         if (count < products.length) {
@@ -26,23 +33,18 @@ System.out.println("Специальных товаров: " + specialCount);
 
 
     public void printBasketContents() {
-//        boolean isEmpty = true;
-//        for (Product product : products) {
-//            if (product != null) {
-//                System.out.println(product.getName() + ": " + product.getPrice());
-//                isEmpty = false;
-//            }
-//        }
-//        if (isEmpty) {
-//            System.out.println("в корзине пусто");
-//        }
-//        System.out.println("Итого: " + getTotalCost()); // Выводим общую стоимость
-//    }
-
-
+        boolean isEmpty = true;
         for (Product product : products) {
-            System.out.println(product.toString());
+            if (product != null) {
+                System.out.println(product.getName() + ": " + product.getPrice());
+                isEmpty = false;
+            }
         }
+        if (isEmpty) {
+            System.out.println("в корзине пусто");
+        }
+        System.out.println("Итого: " + getTotalCost()); // Выводим общую стоимость
+    }
 
 
     public int getTotalCost() {
@@ -54,14 +56,14 @@ System.out.println("Специальных товаров: " + specialCount);
         }
         return totalCost;
     }
-//    public boolean isProductInBasket(String productName) {
-//        for (Product product : products) {
-//            if (product != null && product.getName().equals(productName)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+    public boolean isProductInBasket(String productName) {
+        for (Product product : products) {
+            if (product != null && product.getName().equals(productName)) {
+                return true;
+            }
+        }
+        return false;
+    }
     public void clearBasket() {
         for (int i = 0; i < products.length; i++) {
             products[i] = null;
