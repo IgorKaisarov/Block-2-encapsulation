@@ -4,6 +4,24 @@ public class ProductBasket {
     private Product[] products = new Product[5];
     private int count = 0;
 
+
+    public int specialCount(){
+        int specialCount = 0;
+
+        for (Product product : products) {
+            if (product != null) {
+                System.out.println(product.toString());
+                if (product.isSpecial()) {
+                    specialCount++;
+                }
+            }
+        }
+        System.out.println("Специальных товаров: " + specialCount);
+
+        return specialCount;
+    }
+
+
     public void addProduct(Product product) {
         if (count < products.length) {
             products[count] = product;
@@ -18,7 +36,7 @@ public class ProductBasket {
         boolean isEmpty = true;
         for (Product product : products) {
             if (product != null) {
-                System.out.println(product.getName() + ": " + product.getCost());
+                System.out.println(product.getName() + ": " + product.getPrice());
                 isEmpty = false;
             }
         }
@@ -27,11 +45,13 @@ public class ProductBasket {
         }
         System.out.println("Итого: " + getTotalCost()); // Выводим общую стоимость
     }
+
+
     public int getTotalCost() {
         int totalCost = 0;
         for (Product product : products) {
             if (product != null) {
-                totalCost += product.getCost();
+                totalCost += product.getPrice();
             }
         }
         return totalCost;
