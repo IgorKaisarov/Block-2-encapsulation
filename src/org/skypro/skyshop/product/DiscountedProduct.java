@@ -31,4 +31,13 @@ public class DiscountedProduct extends Product {
         return true;
     }
 
+    @Override
+    public String getSearchable() {
+        return "";
+    }
+
+    @Override
+    public String getContentType() {
+        return "";
+    }
 }

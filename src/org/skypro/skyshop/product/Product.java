@@ -1,6 +1,6 @@
 package org.skypro.skyshop.product;
 
-public abstract class Product {
+public abstract class Product implements Searchable {
     public String name;
 
     public String getName() {
@@ -17,6 +17,22 @@ public abstract class Product {
         this.name = name;
     }
 
+    @Override
+    public String getSearchTerm() {
+        return this.name; // Предполагается, что name — это поле класса Product
+    }
+
+
+    @Override
+    public String getSearchContent() {
+        return "PRODUCT";
+    }
+
+
+    @Override
+    public String getContent() { // Изменил с getName
+        return this.name;
+    }
 
 
 }
