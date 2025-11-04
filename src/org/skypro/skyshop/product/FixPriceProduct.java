@@ -24,13 +24,4 @@ public class FixPriceProduct extends Product {
         return true;
     }
 
-    @Override
-    public String getSearchable() {
-        return "";
-    }
-
-    @Override
-    public String getContentType() {
-        return "";
-    }
 }

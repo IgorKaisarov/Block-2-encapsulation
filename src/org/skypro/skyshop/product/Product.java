@@ -30,7 +30,7 @@ public abstract class Product implements Searchable {
 
 
     @Override
-    public String getContent() { // Изменил с getName
+    public String getName() {
         return this.name;
     }
 

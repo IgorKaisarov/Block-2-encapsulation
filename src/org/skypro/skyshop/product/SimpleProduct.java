@@ -24,13 +24,4 @@ public class SimpleProduct extends Product{
         return false;
     }
 
-    @Override
-    public String getSearchable() {
-        return "";
-    }
-
-    @Override
-    public String getContentType() {
-        return "";
-    }
 }

@@ -11,18 +11,18 @@ public class SearchEngine {
     Searchable[] results = new Searchable[5];
     int count = 0; // Счетчик найденных элементов
 
+    searchables[0] = new Article("В мире животных", "Оглавление");
 
-    for(
-    Searchable item:
-    public Searchable Searchable)
-    private CharSequence searchTerm = null;
 
-    {
-        if (item.getSearchTerm().contains(searchTerm) && count < 5) {
-            results[count] = item;
-            count++;
+    for (Searchable item : searchables) {
+        if (item != null && item.getSearchTerm().contains(searchTerm)) {
+            if(item.getSearchTerm().contains(searchTerm) { } &&count< 5) {
+                results[count] = item;
+                count++;
+            }
         }
     }
+
 
 
     public SearchEngine(String[] searchable, CharSequence searchTerm) {

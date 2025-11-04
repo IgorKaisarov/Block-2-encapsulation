@@ -19,15 +19,6 @@ public class Article implements Searchable {
         return articleTitle + " " + articleText; // title и text — это поля класса Article
     }
 
-    @Override
-    public String getSearchContent() {
-        return "";
-    }
-
-    @Override
-    public String getSearchable() {
-        return "";
-    }
 
     @Override
     public String getContentType() {
@@ -38,11 +29,6 @@ public class Article implements Searchable {
     @Override
     public String getName() {
         return this.articleTitle;
-    }
-
-    @Override
-    public String getContent() {
-        return "";
     }
 
 
