@@ -1,34 +1,37 @@
 package org.skypro.skyshop.product;
 
 public class SearchEngine {
+    private final Searchable[] items;
 
-    Searchable Searchable[];
+    public SearchEngine(int size) {
+        this.items = new Searchable[size];
+    }
 
     public Searchable[] search(String searchTerm) {
-        Searchable[] results = new Searchable[5]; int count = 0; // Счетчик найденных элементов
-        searchables[0] = new Article("В мире животных", "Оглавление");
+        int amount = 0;
+        Searchable[] finalItems = new Searchable[5];
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] != null && items[i].getSearchTerm().contains(searchTerm)) {
 
-
-        for (Searchable item : searchables) {
-            if (item != null && item.getSearchTerm().contains(searchTerm)) {
-                if(item.getSearchTerm().contains(searchTerm) {
-                } &&count< 5) {
-                    results[count] = item;
-                    count++;
+                finalItems[amount] = items[i];
+                amount++;
+                if (amount >= 5) {
+                    break;
                 }
             }
         }
-        return results; }
 
+        return finalItems;
 
-
-//    public SearchEngine(String[] searchable, CharSequence searchTerm) {
-//        Searchable = searchable;
-//        this.searchTerm = searchTerm;
-//    }
-
-    public SearchEngine(int size) {
-        this.searchables = new Searchable[size];
     }
 
+    public void add(Searchable searchable) {
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] == null) {
+                items[i] = searchable;
+                break;
+            }
+        }
+    }
 }
+
