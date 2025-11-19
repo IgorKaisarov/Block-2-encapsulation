@@ -1,6 +1,5 @@
 import org.skypro.skyshop.basket.ProductBasket;
-import org.skypro.skyshop.product.Product;
-import org.skypro.skyshop.product.SimpleProduct;
+import org.skypro.skyshop.product.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -32,6 +31,15 @@ public class Main {
         basket.clearBasket();
         basket.printBasketContents();
     }
+
+    SearchEngine searchEngine = new SearchEngine(5);
+
+//    searchEngine.add(new DiscountedProduct);
+//    searchEngine.add(new FixPriceProduct);
+//
+//    Searchable[] results = searchEngine.search("Молоко");
+//    System.out.println(Arrays.toString(results));
+
 
 
     }
