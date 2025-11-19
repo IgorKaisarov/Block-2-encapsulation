@@ -5,6 +5,9 @@ public abstract class Product implements Searchable {
 
 
     public Product(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Неправильное имя продукта");
+        }
         this.name = name;
     }
 

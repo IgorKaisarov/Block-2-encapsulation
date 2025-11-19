@@ -6,6 +6,9 @@ public class SimpleProduct extends Product{
 
     public SimpleProduct(String name, double price) {
         super(name);
+        if (price <= 0) {
+            throw new IllegalArgumentException("Недопустимая стоимость продукта " + price);
+        }
         this.price = price;
     }
 

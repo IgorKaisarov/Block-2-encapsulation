@@ -5,6 +5,27 @@ public class Article implements Searchable {
     public String articleTitle;
     public String articleText;
 
+    public Article(String articleTitle, String articleText) {
+        this.articleTitle = articleTitle;
+        this.articleText = articleText;
+    }
+
+    public String getArticleTitle() {
+        return articleTitle;
+    }
+
+    public void setArticleTitle(String articleTitle) {
+        this.articleTitle = articleTitle;
+    }
+
+    public String getArticleText() {
+        return articleText;
+    }
+
+    public void setArticleText(String articleText) {
+        this.articleText = articleText;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
