@@ -1,7 +1,10 @@
 package org.skypro.skyshop.basket;
 import org.skypro.skyshop.product.Product;
+
+import java.util.List;
+
 public class ProductBasket {
-    private Product[] products = new Product[5];
+    private List<Product> products;
     private int count = 0;
 
 
@@ -10,7 +13,7 @@ public class ProductBasket {
 
         for (Product product : products) {
             if (product != null) {
-                System.out.println(product.toString());
+                System.out.println(product);
                 if (product.isSpecial()) {
                     specialCount++;
                 }
@@ -23,8 +26,8 @@ public class ProductBasket {
 
 
     public void addProduct(Product product) {
-        if (count < products.length) {
-            products[count] = product;
+        if (count < products.size()) {
+            products.set(count, product);
             count++;
         } else {
             System.out.println("Невозможно добавить продукт");
@@ -65,8 +68,8 @@ public class ProductBasket {
         return false;
     }
     public void clearBasket() {
-        for (int i = 0; i < products.length; i++) {
-            products[i] = null;
+        for (int i = 0; i < products.size(); i++) {
+            products.set(i, null);
         }
     }
 

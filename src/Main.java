@@ -30,7 +30,7 @@ public class Main {
         // Очистка корзины
         basket.clearBasket();
         basket.printBasketContents();
-        SearchEngine searchEngine = new SearchEngine(5);
+//        SearchEngine searchEngine = new SearchEngine(5);
 
 
     }
