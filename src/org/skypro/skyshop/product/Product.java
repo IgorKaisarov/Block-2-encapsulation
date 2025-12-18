@@ -6,7 +6,7 @@ public abstract class Product implements Searchable {
 
     public Product(String name) {
         if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("Неправильное имя продукта");
+            throw new IllegalArgumentException("Неправильное имя продукта ");
         }
         this.name = name;
     }
@@ -17,7 +17,7 @@ public abstract class Product implements Searchable {
 
     @Override
     public String getSearchTerm() {
-        return this.name; // Предполагается, что name — это поле класса Product
+        return this.name;
     }
 
 
