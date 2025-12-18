@@ -1,6 +1,6 @@
 package org.skypro.skyshop.product;
 
-import org.skypro.skyshop.product.exception.BestBestResultNotFound;
+import org.skypro.skyshop.product.exception.BestResultNotFound;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -9,18 +9,20 @@ import java.util.List;
 public class SearchEngine {
     private final List<Searchable> items;
 
-    public SearchEngine(List<Searchable> items) {
-        this.items = items;
+    public SearchEngine() {
+        this.items = new LinkedList<>();
     }
 
 
-    public Searchable findSearchable(String search) throws BestBestResultNotFound {
+    public Searchable findSearchable(String search) throws BestResultNotFound {
 
         int maxAmount = 0;
         Searchable result = null;
 
-        for (int i = 0; i < items.size(); i++) {
-            Searchable searchable = items.get(i);
+        for (Searchable searchable : items) {
+            if (searchable == null) {
+                continue;
+            }
             String str = searchable.getSearchTerm();
             int amount = 0;
             int index = 0;
@@ -40,56 +42,32 @@ public class SearchEngine {
 
         }
         if (result == null) {
-            throw new BestBestResultNotFound(search);
+            throw new BestResultNotFound(search);
         }
         return result;
 
     }
 
-    public Searchable[] search(String searchTerm) {
-        int amount = 0;
-        Searchable[] finalItems = new Searchable[5];
-        for (int i = 0; i < items.size(); i++) {
-            if (items.get(i) != null && items.get(i).getSearchTerm().contains(searchTerm)) {
-
-                finalItems[amount] = items.get(i);
-                amount++;
-                if (amount >= 5) {
-                    break;
-                }
+    public List<Searchable> search  (String searchTerm) {
+        List<Searchable> result = new LinkedList<>();
+        for (Searchable item : items) {
+            if (item != null && item.getSearchTerm().contains(searchTerm)) {
+                result.add(item);
             }
         }
-
-        return finalItems;
-
+        return result;
     }
 
     public void add(Searchable searchable) {
-        for (int i = 0; i < items.size(); i++) {
-            if (items.get(i) == null) {
-                items.set(i, searchable);
-                break;
-            }
-        }
-    }
+        if (searchable != null) {
+            items.add(searchable);
 
-    public List<Product> removeProduct (String product, LinkedList<Product> products) {
-        List<Product> removedProducts = new LinkedList<>();
-        if (products.isEmpty()) {
-            System.out.println(" Список пуст: ");
-            return products;
         }
 
-        Iterator<Product> iterator = products.iterator();
-        while (iterator.hasNext()) {
-            Product currentProduct = iterator.next();
-            if (currentProduct.equals(product)) {
-                removedProducts.add(currentProduct);
-                iterator.remove();
-            }
-        }
-        return removedProducts;
+
     }
+
+
 
 
 }

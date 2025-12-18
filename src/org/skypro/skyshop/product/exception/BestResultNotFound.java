@@ -1,8 +1,8 @@
 package org.skypro.skyshop.product.exception;
 
-public class BestBestResultNotFound extends Exception {
+public class BestResultNotFound extends Exception {
 
-    public BestBestResultNotFound(String search) {
+    public BestResultNotFound(String search) {
         super("Лучший результат для строки "  + search + " найден ");
     }
 }
